@@ -21,3 +21,15 @@ def get_num_chars(text: str) -> dict[str, int]:
     for c in text:
         chars[c.lower()] = chars.get(c.lower(), 0) + 1
     return chars
+
+
+def sort_on(items: dict[str, int | str]) -> int:
+    return items["num"]
+
+
+def sort_list_dict(chars: dict[str, int]) -> list:
+    list_dict: list[dict[str, int | str]] = []
+    for k, v in chars.items():
+        list_dict.append({"char": k, "num": v})
+    list_dict.sort(reverse=True, key=sort_on)
+    return list_dict
